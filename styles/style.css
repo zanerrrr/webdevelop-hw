@@ -1,0 +1,508 @@
+*{
+    margin: 5px;
+    box-sizing: border-box;
+}
+
+body{
+    text-align: center;
+    font-family: sans-serif;
+    color: white;
+    font-size: 24px;
+    display: grid;
+    height: 100vh;
+    padding: 5px;
+    margin: 0;
+    background-color: lightslategrey;
+    grid-template-columns:  1fr 1fr 1fr;
+    grid-template-rows: 0.2fr 1.5fr 2fr 0.4fr;
+    grid-template-areas: 
+    "header header header"
+    "hero hero desktopad"
+    "main main sidebar"
+    "footer footer footer";
+    grid-gap: 0.2rem
+}
+
+header{
+    background-color: darkcyan;
+    grid-area: header;
+    grid-template-columns: 0.5fr 1fr 0.5fr;
+    grid-template-areas: "brand nav tools";
+    display: grid;
+    width: 100%;
+}
+
+.brand{
+    background: rgb(64, 115, 165);
+    grid-area: brand;
+    padding: 3px;
+}
+
+.brand:hover{
+    background-color: darkblue;
+}
+
+nav{
+    background: rgb(64, 115, 165);
+    grid-area: nav;
+    padding: 3px;
+}
+
+nav:hover{
+    background-color: darkblue;
+}
+
+.tools{
+    background: rgb(64, 115, 165);
+    grid-area: tools;
+    padding: 3px;
+}
+
+.tools:hover{
+    background-color: darkblue;
+}
+
+.hero{
+    background: darkcyan;
+    grid-area: hero;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-areas: "herofeature heroaction";
+    width: 100%;
+}
+
+.herofeature{
+    background: rgb(96, 168, 168);
+    grid-area: herofeature;
+    padding: 3px;
+}
+
+.heroaction{
+    background: rgb(96, 168, 168);
+    grid-area: heroaction;
+    padding: 3px;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+
+}
+
+.desktopad{
+    display: grid;
+    background: darkcyan;
+    grid-area: desktopad;
+    grid-template-columns: 1fr;
+    grid-template-areas: "desktopad";
+    padding: 3px;
+    width: 100%;
+}
+
+.desktopad img {
+    background-color:  rgb(96, 168, 168);
+    grid-area: desktopad;
+    align-items: center;
+    width: 100%;
+    padding: 5px;
+} 
+   
+main{
+    background: rgb(88, 10, 84);
+    grid-area: main;
+    display: grid;
+    grid-template-columns: 0.6fr 2fr;
+    grid-template-areas: "articlefeature listing";
+    width: 100%;
+}
+
+.articlefeature{
+    background: rgb(108, 80, 109);
+    grid-area: articlefeature;
+    padding: 3px;
+}
+
+.mobilead img {
+    vertical-align: top;
+    width: 100%;
+    display: none;
+}
+
+.listing{
+    background: rgb(108, 80, 109);
+    grid-area: listing;
+    padding: 3px;
+}
+
+.sidebar{
+    display: grid;
+    background: rgb(88, 10, 84);
+    grid-area: sidebar;
+    grid-template-columns: 1fr;
+    grid-template-areas: "sidebarfeature";
+    padding: 3px;
+    width: 100%;
+}
+
+.sidebarfeature{
+    background: rgb(108, 80, 109);
+    grid-area: sidebarfeature;
+    padding: 3px;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+}
+
+footer{
+    background: rgb(64, 115, 165);
+    grid-area: footer;
+    width: 100%;
+    padding: 3px;
+}
+
+p{
+    display: block;
+    margin-block-start: 1em;
+    margin-block-end: 1em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+}
+
+div{
+    display: block;
+}
+
+@media (min-width: 576px) {
+    body {
+        grid-template-rows: auto auto 1fr auto auto;
+        grid-template-areas:
+            "header"
+            "hero"
+            "main"
+            "sidebar"
+            "footer";
+    }
+
+    header {
+        grid-template-columns: 1fr 2fr 1fr;
+        grid-template-areas:
+            "brand nav tools";
+    }
+
+    .hero {
+        grid-template-areas:
+            "herofeature"
+            "heroaction";
+    }
+
+    .hero .herofeature {
+        display: block;
+    }
+
+    main {
+        grid-template-columns: 1fr 200px;
+        grid-template-rows: auto 1fr;
+        grid-template-areas:
+            "articlefeature articlefeature"
+            "listing listing";
+    }
+
+    .sidebar {
+        display: grid;
+        text-align: center;
+       
+    }
+
+    .desktopad {
+        display: none;
+    }
+
+}
+
+@media (min-width: 992px) {
+    body {
+        grid-template-columns: 1fr 350px;
+        grid-template-rows: auto auto 1fr auto;
+        grid-template-areas:
+            "header header"
+            "hero desktopad"
+            "main sidebar"
+            "footer footer"
+    }
+
+    .hero {
+        grid-template-columns: 2fr 1fr;
+        grid-template-areas:
+            "herofeature heroaction"
+    }
+
+    main {
+        grid-template-columns: 1fr 2fr;
+        grid-template-rows: 1fr;
+        grid-template-areas:
+            "articlefeature listing"
+    }
+}
+
+/* @media screen and (max-width: 576px) {
+    body{
+        font-size: 16px;
+    }
+    header{
+        grid-template-columns: 1fr;
+        grid-template-rows: 0.2fr 0.2fr 0.2fr;
+        grid-template-areas: 
+        "brand" 
+        "nav" 
+        "tools";
+    }
+    .hero{
+        grid-template-columns: 1fr;
+        grid-template-rows: 0.5fr 0.5fr;
+        grid-template-areas: 
+        "herofeature" 
+        "heroaction" ;
+    }
+    .desktopad{
+        grid-template-columns: 1fr;
+        grid-template-rows: 0.5fr;
+        grid-template-areas: 
+        "desktopad";
+    }
+    main{
+        grid-template-columns: 1fr;
+        grid-template-rows: 0.5fr 0.5fr;
+        grid-template-areas: 
+        "articlefeature"
+        "listing";
+    }
+    .sidebar{
+        grid-template-columns: 1fr;
+        grid-template-rows: 0.5fr;
+        grid-template-areas:
+        "sidebar";
+    }
+
+    .desktopad img {
+        display: none;
+    }
+    
+}  */
+
+/* 
+
+body {
+    background: LightGray;
+    margin: 0;
+    font-size: 1.5em;
+    text-align: center;
+    height: 100vh;
+
+    display: grid;
+    grid-gap: 10px;
+    
+    grid-template-areas:
+        "header"
+        "hero"
+        "body"
+        "footer"
+}
+
+
+header {
+    background: LightSkyBlue;
+    padding: 10px;
+    grid-area: header;
+
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 10px;
+    grid-template-areas:
+        "brand brand"
+        "nav tools";
+}
+
+header .brand {
+    background: rgb(69, 184, 255);
+    grid-area: brand;
+}
+
+header nav {
+    background: rgb(69, 184, 255);
+    grid-area: nav;
+}
+
+header .tools {
+    background: rgb(69, 184, 255);
+    grid-area: tools;
+}
+
+
+.hero {
+    background: PaleGreen;
+    padding: 10px;
+    grid-area: hero;
+
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-gap: 10px;
+    grid-template-areas:
+        "action";
+}
+
+.hero .heroaction {
+    background: rgb(68, 255, 68);
+    grid-area: action;
+}
+
+.hero .herofeature {
+    background: rgb(68, 255, 68);
+    grid-area: feature;
+}
+
+
+main {
+    background: lightpink;
+    padding: 10px;
+    grid-area: body;
+
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-gap: 10px;
+    grid-template-areas: 
+        "feature"
+        "ad"
+        "listing";
+}
+
+main .feature {
+    background: rgb(255, 136, 154);
+    grid-area: feature;
+}
+
+main .mobile-ad {
+    grid-area: ad;
+}
+
+main .listing {
+    background: rgb(255, 136, 154);
+    grid-area: listing;
+}
+
+
+footer {
+    background: LightSalmon;
+    padding: 10px;
+    grid-area: footer;
+}
+
+
+.desktopad {
+    grid-area: ad;
+    display: none;
+}
+
+.sidebar {
+    background: BlanchedAlmond;
+    padding: 10px;
+    grid-area: sidebar;
+
+    display: none;
+}
+
+.sidebar .feature {
+    background: rgb(255, 208, 136);
+    height: 100%;
+}
+
+
+.mobilead img {
+    vertical-align: top;
+    width: 100%;
+}
+
+.desktopad img {
+    vertical-align: top;
+    width: 350px;
+}
+
+
+@media (min-width: 576px) {
+    body {
+        grid-template-rows: auto auto 1fr auto auto;
+        grid-template-areas:
+            "header"
+            "hero"
+            "body"
+            "sidebar"
+            "footer";
+    }
+
+   
+    header {
+        grid-template-columns: 1fr 2fr 1fr;
+        grid-template-areas:
+            "brand nav tools";
+    }
+
+    .hero {
+        grid-template-areas:
+            "herofeature"
+            "heroaction";
+    }
+
+    .hero .feature {
+        display: block;
+    }
+
+    main {
+        grid-template-columns: 1fr 200px;
+        grid-template-rows: auto 1fr;
+        grid-template-areas:
+            "feature ad"
+            "listing listing";
+    }
+
+ 
+    .sidebar {
+        display: grid;
+    }
+
+    .mobilead img {
+        width: 200px;
+    }
+}
+
+@media (min-width: 992px) {
+    body {
+        grid-template-columns: 1fr 350px;
+        grid-template-rows: auto auto 1fr auto;
+        grid-template-areas:
+            "header header"
+            "hero ad"
+            "body sidebar"
+            "footer footer"
+    }
+
+
+    .hero {
+        grid-template-columns: 2fr 1fr;
+        grid-template-areas:
+            "herofeature heroaction"
+    }
+
+    main {
+        grid-template-columns: 1fr 2fr;
+        grid-template-rows: 1fr;
+        grid-template-areas:
+            "feature listing"
+    }
+
+    .mobilead {
+        display: none;
+    }
+
+    .desktopad {
+        display: block;
+    }
+} */
